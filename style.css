@@ -289,3 +289,35 @@ gap:15px;
 .status-ongoing { background: #fef9c3; color: #854d0e; }
 .status-planning { background: #e0e7ff; color: #3730a3; }
 .status-default { background: #f3f4f6; color: #374151; }
+/* Matrix Aesthetics Header */
+.matrix-header {
+    background: #1a1a1a;
+    padding: 15px 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border-bottom: 2px solid #333;
+    width: 100%;
+}
+
+.header-title { color: #fff; font-weight: bold; margin-right: 10px; }
+
+.matrix-header button {
+    background: #252525;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 6px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.matrix-header button:hover { background: #333; }
+
+/* Theme Colors */
+:root { --bg: #0f0f12; --text: #e0e0e0; }
+.cherry-blossom { --bg: #fff0f5; --text: #d87093; }
+.midnight-orchid { --bg: #1a0b2e; --text: #e0b0ff; }
+.cyber-lotus { --bg: #0d1b2a; --text: #4cc9f0; }
+
+body { background-color: var(--bg); color: var(--text); transition: 0.4s; }
