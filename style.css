@@ -251,3 +251,18 @@ gap:15px;
 .genre-drama { background: #dbeafe; color: #1e40af; } /* Light Blue */
 .genre-scifi { background: #fef9c3; color: #854d0e; } /* Light Yellow */
 .genre-default { background: #f3f4f6; color: #374151; } /* Grey */
+
+/* Platform Badge Styles */
+.platform-badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.platform-netflix { background: #fecaca; color: #991b1b; }
+.platform-disney { background: #dbeafe; color: #1e40af; }
+.platform-prime { background: #e0f2fe; color: #075985; }
+.platform-default { background: #e5e7eb; color: #374151; }
