@@ -78,15 +78,25 @@ gap:20px;
 padding:20px 8%;
 }
 
-.card{
-background:var(--card);
-border:1px solid var(--border);
-backdrop-filter:blur(20px);
-border-radius:20px;
-padding:25px;
-text-align:center;
+.card {
+    background: #1f1f23;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #374151;
+    transition: transform 0.2s;
 }
 
+.card:hover {
+    transform: translateY(-5px);
+}
+.badge-container {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .card h2{
 font-size:2rem;
 margin-bottom:10px;
