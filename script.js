@@ -277,6 +277,6 @@ function updateDashboard() {
         recentList.appendChild(div);
     });
 }
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
     updateDashboard();
 });
