@@ -99,38 +99,19 @@ function renderEntries(dataToRender = null) {
         const card = document.createElement("div");
         card.className = "entry-card";
         card.innerHTML = `
-            <h3>${item.title}</h3>
-            <p>📺 ${item.type}</p>
-            <div class="badge-container">
-                ${item.genre ? `<p class="genre-badge ${getGenreClass(item.genre)}">🧩 ${item.genre}</p>` : ""}
-                ${item.platform ? `<p class="platform-badge ${getPlatformClass(item.platform)}">💻 ${item.platform}</p>` : ""}
-                ${item.status ? `<p class="status-badge ${getStatusClass(item.status)}">${item.status}</p>` : ""}
-            </div>
-        `;
-        entries.appendChild(card);
-    });
-}
-
-function filterEntries() {
-    const filterValue = document.getElementById("filter-type").value;
-    
-    if (filterValue === "All") {
-        renderEntries(watchverseData);
-    } else {
-        const filtered = watchverseData.filter(item => item.type === filterValue);
-        renderEntries(filtered);
-    }
-}
-    <p class="rating">
-    ⭐ ${item.rating} Stars
-    </p>
-</p>
-<p>
-🎬 ${item.seasonStatus}
-</p>
-<p>
-${item.notes}
-</p>
+        card.innerHTML = `
+        <h3>${item.title}</h3>
+        <p>📺 ${item.type}</p>
+        <div class="badge-container">
+            ${item.genre ? `<p class="genre-badge ${getGenreClass(item.genre)}">🧩 ${item.genre}</p>` : ""}
+            ${item.platform ? `<p class="platform-badge ${getPlatformClass(item.platform)}">💻 ${item.platform}</p>` : ""}
+            ${item.status ? `<p class="status-badge ${getStatusClass(item.status)}">${item.status}</p>` : ""}
+            <p class="rating">⭐ ${item.rating} Stars</p>
+            <p>📺 ${item.seasonStatus}</p>
+            <p>📝 ${item.notes}</p>
+        </div>
+    `;
+    entries.appendChild(card);   
 <button 
     class="edit-btn" 
     onclick="editEntry(${item.id})" 
