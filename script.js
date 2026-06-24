@@ -108,8 +108,7 @@ card.innerHTML=`
 
 <p>🎭 ${item.type}</p>
 
-<p>📚 ${item.genre}</p>
-
+<p class="genre-badge ${getGenreClass(item.genre)}">🧩 ${item.genre}</p>
 <p>📺 ${item.platform}</p>
 
 <p class="rating">
@@ -234,4 +233,12 @@ function updateEntry(id) {
     const addBtn = document.getElementById("addBtn");
     addBtn.innerText = "➕ Add Entry";
     addBtn.onclick = addEntry;
+}
+function getGenreClass(genre) {
+    const g = genre.toLowerCase();
+    if (g.includes("action")) return "genre-action";
+    if (g.includes("comedy")) return "genre-comedy";
+    if (g.includes("drama")) return "genre-drama";
+    if (g.includes("sci-fi") || g.includes("sci fi")) return "genre-scifi";
+    return "genre-default";
 }
