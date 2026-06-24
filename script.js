@@ -257,9 +257,18 @@ function getStatusClass(status) {
 }
 function updateDashboard() {
     const data = JSON.parse(localStorage.getItem("watchverseData")) || [];
+    
+    // Total Entries
     document.getElementById("total-entries").innerText = data.length;
+    
+    // Movies Filter (Check: tumhara category input ka value "Movie" hi hona chahiye)
+    const movies = data.filter(item => item.type === "Movie").length;
+    document.getElementById("total-movies").innerText = movies;
+    
+    // Series Filter (Check: tumhara category input ka value "Web Series" hi hona chahiye)
+    const series = data.filter(item => item.type === "Web Series").length;
+    document.getElementById("total-series").innerText = series;
 }
-
 window.addEventListener("load", () => {
     updateDashboard();
 });
