@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WatchVerse</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<header class="header">
+
+<div class="logo">
+🎬 WatchVerse
+</div>
+
+<div class="theme-switcher">
+
+<button onclick="setTheme('blossom')">
+🌸 Blossom
+</button>
+
+<button onclick="setTheme('orchid')">
+🌙 Orchid
+</button>
+
+<button onclick="setTheme('lotus')">
+🌿 Lotus
+</button>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>
+Track Movies, Web Series & Anime
+</h1>
+
+<p>
+Your personal entertainment universe.
+</p>
+
+</section>
+
+<section class="stats">
+
+<div class="card">
+<h2 id="totalEntries">0</h2>
+<p>Total Entries</p>
+</div>
+
+<div class="card">
+<h2 id="watchedCount">0</h2>
+<p>Watched</p>
+</div>
+
+<div class="card">
+<h2 id="planCount">0</h2>
+<p>Plan To Watch</p>
+</div>
+
+</section>
+
+<section class="container">
+
+<div class="form-box">
+
+<h2>Add New Entry</h2>
+
+<select id="type">
+<option>Movie</option>
+<option>Web Series</option>
+<option>Anime</option>
+</select>
+
+<input
+type="text"
+id="title"
+placeholder="Title"
+>
+
+<input
+type="text"
+id="genre"
+placeholder="Genre"
+>
+
+<input
+type="text"
+id="platform"
+placeholder="Platform"
+>
+
+<input
+type="number"
+id="rating"
+min="1"
+max="10"
+placeholder="Rating (1-10)"
+>
+
+<select id="status">
+<option>Watched</option>
+<option>Plan To Watch</option>
+</select>
+
+<textarea
+id="notes"
+placeholder="Notes"
+></textarea>
+
+<button id="addBtn">
+➕ Add Entry
+</button>
+
+</div>
+
+<div class="content-box">
+
+<div class="top-tools">
+
+<input
+type="text"
+id="search"
+placeholder="Search..."
+>
+
+</div>
+
+<div id="entries">
+
+</div>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
