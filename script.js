@@ -261,13 +261,14 @@ function updateDashboard() {
     // Total Entries
     document.getElementById("total-entries").innerText = data.length;
     
-    // Movies Filter (Check: tumhara category input ka value "Movie" hi hona chahiye)
-    const movies = data.filter(item => item.type === "Movie").length;
-    document.getElementById("total-movies").innerText = movies;
+    // Movies & Series Count
+    document.getElementById("total-movies").innerText = data.filter(item => item.type === "Movie").length;
+    document.getElementById("total-series").innerText = data.filter(item => item.type === "Web Series").length;
     
-    // Series Filter (Check: tumhara category input ka value "Web Series" hi hona chahiye)
-    const series = data.filter(item => item.type === "Web Series").length;
-    document.getElementById("total-series").innerText = series;
+    // Average Rating Calculation
+    const totalRating = data.reduce((sum, item) => sum + parseFloat(item.rating || 0), 0);
+    const avg = data.length > 0 ? (totalRating / data.length).toFixed(1) : "0.0";
+    document.getElementById("avg-rating").innerText = avg;
 }
 window.addEventListener("load", () => {
     updateDashboard();
