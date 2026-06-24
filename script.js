@@ -255,3 +255,11 @@ function getStatusClass(status) {
     if (s.includes("plan")) return "status-planning";
     return "status-default";
 }
+function updateDashboard() {
+    const data = JSON.parse(localStorage.getItem("watchverseData")) || [];
+    document.getElementById("total-entries").innerText = data.length;
+}
+
+window.addEventListener("load", () => {
+    updateDashboard();
+});
