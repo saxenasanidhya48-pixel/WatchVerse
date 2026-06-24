@@ -113,13 +113,15 @@ card.innerHTML=`
 <p>📺 ${item.platform}</p>
 
 <p class="rating">
-⭐ ${item.rating}/10
+⭐ ${item.rating} Stars
 </p>
 
 <p>
 ${item.status}
 </p>
-
+<p>
+🎬 ${item.seasonStatus}
+</p>
 <p>
 ${item.notes}
 </p>
