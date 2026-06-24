@@ -180,3 +180,14 @@ x=>x.status==="Plan To Watch"
 }
 
 renderEntries();
+// Task 5: Search Working Implementation
+document.getElementById("search").addEventListener("input", function() {
+    let filter = this.value.toLowerCase();
+    let entriesContainer = document.getElementById("entries");
+    let cards = entriesContainer.getElementsByClassName("entry-card");
+    
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+        cards[i].style.display = title.includes(filter) ? "" : "none";
+    }
+});
