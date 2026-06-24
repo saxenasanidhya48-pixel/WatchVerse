@@ -258,17 +258,24 @@ function getStatusClass(status) {
 function updateDashboard() {
     const data = JSON.parse(localStorage.getItem("watchverseData")) || [];
     
-    // Total Entries
+    // Stats Update
     document.getElementById("total-entries").innerText = data.length;
-    
-    // Movies & Series Count
     document.getElementById("total-movies").innerText = data.filter(item => item.type === "Movie").length;
     document.getElementById("total-series").innerText = data.filter(item => item.type === "Web Series").length;
     
-    // Average Rating Calculation
     const totalRating = data.reduce((sum, item) => sum + parseFloat(item.rating || 0), 0);
-    const avg = data.length > 0 ? (totalRating / data.length).toFixed(1) : "0.0";
-    document.getElementById("avg-rating").innerText = avg;
+    document.getElementById("avg-rating").innerText = data.length > 0 ? (totalRating / data.length).toFixed(1) : "0.0";
+
+    // Recent Entries Logic
+    const recentList = document.getElementById("recent-list");
+    recentList.innerHTML = "";
+    const recentItems = data.slice().reverse().slice(0, 3);
+    recentItems.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "recent-item";
+        div.innerHTML = `<p>${item.title} (${item.type}) - ${item.rating}⭐</p>`;
+        recentList.appendChild(div);
+    });
 }
 window.addEventListener("load", () => {
     updateDashboard();
