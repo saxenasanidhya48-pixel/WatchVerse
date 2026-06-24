@@ -108,7 +108,7 @@ card.innerHTML=`
 
 <p>🎭 ${item.type}</p>
 
-// Line 111 ko aise update karo:
+
 ${item.genre ? `<p class="genre-badge ${getGenreClass(item.genre)}">🧩 ${item.genre}</p>` : ""}
 ${item.platform ? `<p class="platform-badge ${getPlatformClass(item.platform)}">📺 ${item.platform}</p>` : ""}
 
