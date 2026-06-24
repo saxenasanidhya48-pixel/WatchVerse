@@ -2,7 +2,7 @@ console.log("🎬 WatchVerse Loaded");
 
 function setTheme(theme){
 
-document.body.setAttribute("data-theme", theme);
+document.body.className = theme;
 
 localStorage.setItem("watchverse-theme", theme);
 
@@ -15,9 +15,7 @@ localStorage.getItem("watchverse-theme");
 
 if(savedTheme){
 
-document.body.setAttribute(
-"data-theme",
-savedTheme
+document.body.className = savedTheme;
 );
 
 }
