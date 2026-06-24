@@ -110,7 +110,7 @@ card.innerHTML=`
 
 // Line 111 ko aise update karo:
 ${item.genre ? `<p class="genre-badge ${getGenreClass(item.genre)}">🧩 ${item.genre}</p>` : ""}
-<p>📺 ${item.platform}</p>
+${item.platform ? `<p class="platform-badge ${getPlatformClass(item.platform)}">📺 ${item.platform}</p>` : ""}
 
 <p class="rating">
 ⭐ ${item.rating} Stars
@@ -242,4 +242,11 @@ function getGenreClass(genre) {
     if (g.includes("drama")) return "genre-drama";
     if (g.includes("sci-fi") || g.includes("sci fi")) return "genre-scifi";
     return "genre-default";
+}
+function getPlatformClass(platform) {
+    const p = platform.toLowerCase();
+    if (p.includes("netflix")) return "platform-netflix";
+    if (p.includes("disney")) return "platform-disney";
+    if (p.includes("prime")) return "platform-prime";
+    return "platform-default";
 }
