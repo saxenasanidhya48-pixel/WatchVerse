@@ -23,3 +23,155 @@ savedTheme
 }
 
 });
+let watchverseData =
+JSON.parse(localStorage.getItem("watchverseData")) || [];
+
+const entries = document.getElementById("entries");
+
+const addBtn = document.getElementById("addBtn");
+
+addBtn.addEventListener("click", addEntry);
+
+function addEntry(){
+
+const item = {
+
+id: Date.now(),
+
+type: document.getElementById("type").value,
+
+title: document.getElementById("title").value,
+
+genre: document.getElementById("genre").value,
+
+platform: document.getElementById("platform").value,
+
+rating: document.getElementById("rating").value,
+
+status: document.getElementById("status").value,
+
+notes: document.getElementById("notes").value
+
+};
+
+if(item.title.trim()===""){
+alert("Enter a title");
+return;
+}
+
+watchverseData.push(item);
+
+saveData();
+
+renderEntries();
+
+clearForm();
+
+}
+
+function saveData(){
+
+localStorage.setItem(
+"watchverseData",
+JSON.stringify(watchverseData)
+);
+
+}
+
+function clearForm(){
+
+document.getElementById("title").value="";
+document.getElementById("genre").value="";
+document.getElementById("platform").value="";
+document.getElementById("rating").value="";
+document.getElementById("notes").value="";
+
+}
+
+function renderEntries(){
+
+entries.innerHTML="";
+
+watchverseData.forEach(item=>{
+
+const card =
+document.createElement("div");
+
+card.className="entry-card";
+
+card.innerHTML=`
+
+<h3>${item.title}</h3>
+
+<p>🎭 ${item.type}</p>
+
+<p>📚 ${item.genre}</p>
+
+<p>📺 ${item.platform}</p>
+
+<p class="rating">
+⭐ ${item.rating}/10
+</p>
+
+<p>
+${item.status}
+</p>
+
+<p>
+${item.notes}
+</p>
+
+<button
+class="delete-btn"
+onclick="deleteEntry(${item.id})"
+>
+Delete
+</button>
+
+`;
+
+entries.appendChild(card);
+
+});
+
+updateStats();
+
+}
+
+function deleteEntry(id){
+
+watchverseData =
+watchverseData.filter(
+item=>item.id!==id
+);
+
+saveData();
+
+renderEntries();
+
+}
+
+function updateStats(){
+
+document.getElementById(
+"totalEntries"
+).textContent =
+watchverseData.length;
+
+document.getElementById(
+"watchedCount"
+).textContent =
+watchverseData.filter(
+x=>x.status==="Watched"
+).length;
+
+document.getElementById(
+"planCount"
+).textContent =
+watchverseData.filter(
+x=>x.status==="Plan To Watch"
+).length;
+
+}
+
+renderEntries();
