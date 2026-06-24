@@ -155,27 +155,24 @@ function deleteEntry(id) {
     }
 }
 
-function updateStats(){
-
-document.getElementById(
-"totalEntries"
-).textContent =
-watchverseData.length;
-
-document.getElementById(
-"watchedCount"
-).textContent =
-watchverseData.filter(
-x=>x.status==="Watched"
-).length;
-
-document.getElementById(
-"planCount"
-).textContent =
-watchverseData.filter(
-x=>x.status==="Plan To Watch"
-).length;
-
+function updateStats() {
+    // 1. Total Entries
+    document.getElementById("total-entries").textContent = watchverseData.length;
+    
+    // 2. Movies Count
+    document.getElementById("total-movies").textContent = watchverseData.filter(
+        item => item.type === "Movie"
+    ).length;
+    
+    // 3. Web Series Count
+    document.getElementById("total-series").textContent = watchverseData.filter(
+        item => item.type === "Web Series"
+    ).length;
+    
+    // 4. Average Rating
+    const totalRating = watchverseData.reduce((sum, item) => sum + parseFloat(item.rating || 0), 0);
+    document.getElementById("avg-rating").textContent = watchverseData.length > 0 ? 
+        (totalRating / watchverseData.length).toFixed(1) : "0.0";
 }
 
 renderEntries();
