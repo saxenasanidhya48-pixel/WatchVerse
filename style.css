@@ -266,3 +266,16 @@ gap:15px;
 .platform-disney { background: #dbeafe; color: #1e40af; }
 .platform-prime { background: #e0f2fe; color: #075985; }
 .platform-default { background: #e5e7eb; color: #374151; }
+/* Status Badge Styles */
+.status-badge {
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-watched { background: #dcfce7; color: #166534; }
+.status-ongoing { background: #fef9c3; color: #854d0e; }
+.status-planning { background: #e0e7ff; color: #3730a3; }
+.status-default { background: #f3f4f6; color: #374151; }
