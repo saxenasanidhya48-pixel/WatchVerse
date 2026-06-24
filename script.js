@@ -50,7 +50,10 @@ rating: document.getElementById("rating").value,
 
 status: document.getElementById("status").value,
 
-notes: document.getElementById("notes").value
+notes: document.getElementById("notes").value,
+
+seasonStatus:
+document.getElementById("seasonStatus").value
 
 };
 
