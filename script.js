@@ -125,7 +125,12 @@ ${item.status}
 <p>
 ${item.notes}
 </p>
-
+<button 
+    class="edit-btn" 
+    onclick="editEntry(${item.id})" 
+    style="background: #3b82f6; color: white; border: none; padding: 10px 14px; border-radius: 10px; cursor: pointer; margin-bottom: 8px;">
+    Edit
+</button>
 <button
 class="delete-btn"
 onclick="deleteEntry(${item.id})"
@@ -191,3 +196,46 @@ document.getElementById("search").addEventListener("input", function() {
         cards[i].style.display = title.includes(filter) ? "" : "none";
     }
 });
+// Task 6: Edit Entry (Paste this in script.js)
+function editEntry(id) {
+    const item = watchverseData.find(i => i.id === id);
+    
+    // Data form mein wapas daalo
+    document.getElementById("title").value = item.title;
+    document.getElementById("genre").value = item.genre;
+    document.getElementById("platform").value = item.platform;
+    document.getElementById("rating").value = item.rating;
+    document.getElementById("status").value = item.status;
+    document.getElementById("seasonStatus").value = item.seasonStatus;
+    document.getElementById("notes").value = item.notes;
+
+    // Add button ko "Update" mein badlo
+    const addBtn = document.getElementById("addBtn");
+    addBtn.innerText = "💾 Update Entry";
+    addBtn.onclick = function() { updateEntry(id); };
+}
+
+// Update logic
+function updateEntry(id) {
+    const index = watchverseData.findIndex(i => i.id === id);
+    watchverseData[index] = {
+        id: id,
+        type: document.getElementById("type").value,
+        title: document.getElementById("title").value,
+        genre: document.getElementById("genre").value,
+        platform: document.getElementById("platform").value,
+        rating: document.getElementById("rating").value,
+        status: document.getElementById("status").value,
+        seasonStatus: document.getElementById("seasonStatus").value,
+        notes: document.getElementById("notes").value
+    };
+    
+    saveData();
+    renderEntries();
+    clearForm();
+    
+    // Button wapas "Add" bana do
+    const addBtn = document.getElementById("addBtn");
+    addBtn.innerText = "➕ Add Entry";
+    addBtn.onclick = addEntry;
+}
