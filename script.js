@@ -148,17 +148,13 @@ updateStats();
 
 }
 
-function deleteEntry(id){
-
-watchverseData =
-watchverseData.filter(
-item=>item.id!==id
-);
-
-saveData();
-
-renderEntries();
-
+function deleteEntry(id) {
+    let confirmDelete = confirm("Bhai, sure ho na? Ye entry permanent delete ho jayegi!");
+    if (confirmDelete) {
+        watchverseData = watchverseData.filter(item => item.id !== id);
+        saveData();
+        renderEntries();
+    }
 }
 
 function updateStats(){
