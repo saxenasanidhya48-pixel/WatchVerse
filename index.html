@@ -68,8 +68,13 @@ Your personal entertainment universe.
 </div>
     <section class="recent-entries">
     <h2>Recently Added</h2>
+    <select id="filter-type" onchange="filterEntries()">
+        <option value="All">All Types</option>
+        <option value="Movie">Movies</option>
+        <option value="Web Series">Web Series</option>
+        <option value="Anime">Anime</option>
+    </select>
     <div id="recent-list"></div>
-</section>
 </section>
 <section class="container">
 
