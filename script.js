@@ -117,7 +117,7 @@ ${item.platform ? `<p class="platform-badge ${getPlatformClass(item.platform)}">
 </p>
 
 <p>
-${item.status}
+${item.status ? `<p class="status-badge ${getStatusClass(item.status)}">${item.status}</p>` : ""}
 </p>
 <p>
 🎬 ${item.seasonStatus}
@@ -249,4 +249,11 @@ function getPlatformClass(platform) {
     if (p.includes("disney")) return "platform-disney";
     if (p.includes("prime")) return "platform-prime";
     return "platform-default";
+}
+function getStatusClass(status) {
+    const s = status.toLowerCase();
+    if (s.includes("watched")) return "status-watched";
+    if (s.includes("ongoing")) return "status-ongoing";
+    if (s.includes("plan")) return "status-planning";
+    return "status-default";
 }
