@@ -63,7 +63,7 @@ return;
 watchverseData.push(item);
 
 saveData();
-
+updateDashboard();
 renderEntries();
 
 clearForm();
