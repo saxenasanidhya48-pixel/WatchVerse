@@ -109,15 +109,15 @@ card.innerHTML=`
 <p>🎭 ${item.type}</p>
 
 
-${item.genre ? `<p class="genre-badge ${getGenreClass(item.genre)}">🧩 ${item.genre}</p>` : ""}
-${item.platform ? `<p class="platform-badge ${getPlatformClass(item.platform)}">📺 ${item.platform}</p>` : ""}
+<div class="badge-container">
+        ${item.genre ? `<p class="genre-badge ${getGenreClass(item.genre)}">🧩 ${item.genre}</p>` : ""}
+        ${item.platform ? `<p class="platform-badge ${getPlatformClass(item.platform)}">📺 ${item.platform}</p>` : ""}
+        ${item.status ? `<p class="status-badge ${getStatusClass(item.status)}">${item.status}</p>` : ""}
+    </div>
 
-<p class="rating">
-⭐ ${item.rating} Stars
-</p>
-
-<p>
-${item.status ? `<p class="status-badge ${getStatusClass(item.status)}">${item.status}</p>` : ""}
+    <p class="rating">
+    ⭐ ${item.rating} Stars
+    </p>
 </p>
 <p>
 🎬 ${item.seasonStatus}
