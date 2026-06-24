@@ -16,7 +16,7 @@ localStorage.getItem("watchverse-theme");
 if(savedTheme){
 
 document.body.className = savedTheme;
-);
+
 
 }
 
