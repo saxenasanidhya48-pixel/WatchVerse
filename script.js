@@ -257,7 +257,6 @@ function getStatusClass(status) {
 }
 function updateDashboard() {
     const data = JSON.parse(localStorage.getItem("watchverseData")) || [];
-    
     // Stats Update
     document.getElementById("total-entries").innerText = data.length;
     document.getElementById("total-movies").innerText = data.filter(item => item.type === "Movie").length;
